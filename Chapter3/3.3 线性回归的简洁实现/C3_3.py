@@ -56,9 +56,9 @@ data_iter = load_array((features, labels), batch_size)
 net = nn.Sequential(nn.Linear(2, 1))
 
 # 初始化模型参数
-# 使用正态分布初始化权重，均值为0，标准差为0.01
+# 使用正态分布初始化 权重 ，均值为0，标准差为0.01
 net[0].weight.data.normal_(0, 0.01)
-# 将偏置初始化为0
+# 将 偏置 初始化为0
 net[0].bias.data.fill_(0)
 
 # 定义损失函数
