@@ -40,8 +40,7 @@ def data_iter(batch_size, features, labels):
     random.shuffle(indices)
     # 按批量大小迭代数据
     for i in range(0, num_examples, batch_size):
-        batch_indices = torch.tensor(
-            indices[i: min(i + batch_size, num_examples)])
+        batch_indices = torch.tensor(indices[i: min(i + batch_size, num_examples)])
         # 返回当前批量的特征和标签
         yield features[batch_indices], labels[batch_indices]
 
