@@ -1,7 +1,6 @@
 import torch
+import d2l
 from IPython import display
-from d2l import torch as d2l
-
 # =====================
 # 1. 数据加载
 # =====================
@@ -26,7 +25,7 @@ def softmax(X):
     return X_exp / partition
 
 def net(X):
-    return softmax(X.reshape((-1, num_inputs)) @ W + b)
+    return softmax(torch.matmul(X.reshape((-1, W.shape[0])), W) + b)
 
 # =====================
 # 4. 损失函数
