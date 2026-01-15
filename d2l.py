@@ -340,6 +340,7 @@ def train_ch3(net, train_iter, test_iter, loss, num_epochs, updater):
     assert train_loss < 0.5, train_loss
     assert train_acc <= 1 and train_acc > 0.7, train_acc
     assert test_acc <= 1 and test_acc > 0.7, test_acc
+    plt.show()
 
 def predict_ch3(net, test_iter, n=6):
     """预测标签（定义见第3章）
