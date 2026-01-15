@@ -27,6 +27,7 @@ def semilogy(x_vals, y_vals, x_label, y_label, x2_vals=None, y2_vals=None,
     if x2_vals and y2_vals:
         d2l.plt.semilogy(x2_vals, y2_vals, linestyle=':')
         d2l.plt.legend(legend)
+    d2l.plt.show()
 
 num_epochs, loss = 100, torch.nn.MSELoss()
 
