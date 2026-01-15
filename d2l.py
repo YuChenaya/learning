@@ -102,6 +102,7 @@ def plot(X, Y=None, xlabel=None, ylabel=None, legend=None, xlim=None,
         else:
             axes.plot(y, fmt)
     set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend)
+    plt.show()  # 添加show方法以显示图片
 
 class Timer:
     """记录多次运行时间"""
@@ -194,6 +195,7 @@ def show_images(imgs, num_rows, num_cols, titles=None, scale=1.5):
         ax.axes.get_yaxis().set_visible(False)
         if titles:
             ax.set_title(titles[i])
+    plt.show()  # 添加show方法以显示图片
     return axes
 
 def get_dataloader_workers():
@@ -277,7 +279,7 @@ def train_epoch_ch3(net, train_iter, loss, updater):
             # 使用定制的优化器和损失函数
             l.sum().backward()
             updater(X.shape[0])
-        metric.add(float(l.sum()), accuracy(y_hat, y), y.numel())
+        metric.add(float(l.sum().detach()), accuracy(y_hat, y), y.numel())
     # 返回训练损失和训练精度
     return metric[0] / metric[2], metric[1] / metric[2]
 
@@ -350,6 +352,7 @@ def predict_ch3(net, test_iter, n=6):
     titles = [true +'\n' + pred for true, pred in zip(trues, preds)]
     d2l.show_images(
         d2l.reshape(X[0:n], (n, 28, 28)), 1, n, titles=titles[0:n])
+    plt.show()
 
 def evaluate_loss(net, data_iter, loss):
     """评估给定数据集上模型的损失
@@ -889,6 +892,7 @@ def show_list_len_pair_hist(legend, xlabel, ylabel, xlist, ylist):
     for patch in patches[1].patches:
         patch.set_hatch('/')
     d2l.plt.legend(legend)
+    plt.show()  # 添加show方法以显示图片
 
 def truncate_pad(line, num_steps, padding_token):
     """截断或填充文本序列
@@ -1121,7 +1125,8 @@ def show_heatmaps(matrices, xlabel, ylabel, titles=None, figsize=(2.5, 2.5),
                 ax.set_ylabel(ylabel)
             if titles:
                 ax.set_title(titles[j])
-    fig.colorbar(pcm, ax=axes, shrink=0.6);
+    fig.colorbar(pcm, ax=axes, shrink=0.6)
+    plt.show()  # 添加show方法以显示图片
 
 def masked_softmax(X, valid_lens):
     """通过在最后一个轴上掩蔽元素来执行softmax操作
@@ -1389,6 +1394,7 @@ def show_trace_2d(f, results):
     d2l.plt.contour(x1, x2, f(x1, x2), colors='#1f77b4')
     d2l.plt.xlabel('x1')
     d2l.plt.ylabel('x2')
+    plt.show()  # 添加show方法以显示图片
 
 d2l.DATA_HUB['airfoil'] = (d2l.DATA_URL + 'airfoil_self_noise.dat',
                            '76e5be1548fd8222e5074cf0faae75edff8cf93f')
@@ -1656,6 +1662,7 @@ def show_bboxes(axes, bboxes, labels=None, colors=None):
             axes.text(rect.xy[0], rect.xy[1], labels[i],
                       va='center', ha='center', fontsize=9, color=text_color,
                       bbox=dict(facecolor=color, lw=0))
+    plt.show()  # 添加show方法以显示图片
 
 def box_iou(boxes1, boxes2):
     """计算两个锚框或边界框列表中成对的交并比
