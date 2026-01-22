@@ -1,10 +1,12 @@
+# =====================
+# 3.1 线性回归
 # 3.1.2 矢量化加速
-
+# =====================
 import math
 import time
 import numpy as np
 import torch
-from d2l import torch as d2l
+import d2l
 
 # 计时器
 class Timer:
