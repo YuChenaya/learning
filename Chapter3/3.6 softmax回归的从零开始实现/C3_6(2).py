@@ -1,8 +1,6 @@
 import torch
 import numpy as np
-import sys
-sys.path.append("../..")  # 为了导入上上层目录的d2l
-import d2l
+import d22l as d2l
 
 # =====================
 # 3.6.1. 读取数据
@@ -67,9 +65,6 @@ def accuracy(y_hat, y):
     return (y_hat.argmax(dim=1) == y).float().mean().item()
 
 
-
-
-。该函数将被逐步改进：它的完整实现将在“图像增广”一节中描述
 def evaluate_accuracy(data_iter, net):
     acc_sum, n = 0.0, 0
     for X, y in data_iter:
@@ -77,13 +72,13 @@ def evaluate_accuracy(data_iter, net):
         n += y.shape[0]
     return acc_sum / n
 
+
 num_epochs, lr = 5, 0.1
 
 
 # =====================
 # 3.6.6. 训练模型
 # =====================
-# 本函数已保存在d2lzh包中方便以后使用
 def train_ch3(net, train_iter, test_iter, loss, num_epochs, batch_size,
               params=None, lr=None, optimizer=None):
     for epoch in range(num_epochs):
@@ -105,13 +100,13 @@ def train_ch3(net, train_iter, test_iter, loss, num_epochs, batch_size,
             else:
                 optimizer.step()  # “softmax回归的简洁实现”一节将用到
 
-
             train_l_sum += l.item()
             train_acc_sum += (y_hat.argmax(dim=1) == y).sum().item()
             n += y.shape[0]
         test_acc = evaluate_accuracy(test_iter, net)
         print('epoch %d, loss %.4f, train acc %.3f, test acc %.3f'
               % (epoch + 1, train_l_sum / n, train_acc_sum / n, test_acc))
+
 
 train_ch3(net, train_iter, test_iter, cross_entropy, num_epochs, batch_size, [W, b], lr)
 

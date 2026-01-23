@@ -19,6 +19,8 @@ X = torch.tensor([[[0, 1, 2], [3, 4, 5], [6, 7, 8]],
                   [[1, 2, 3], [4, 5, 6], [7, 8, 9]]])
 K = torch.tensor([[[0, 1], [2, 3]], [[1, 2], [3, 4]]])
 
+# print(X.shape)
+# print(K.shape)
 print(corr2d_multi_in(X, K))
 
 

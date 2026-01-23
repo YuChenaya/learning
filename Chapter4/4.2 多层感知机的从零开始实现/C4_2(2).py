@@ -1,7 +1,6 @@
 import numpy as np
 import torch
 from torch import nn
-import sys
 import d22l as d2l
 
 # =====================
@@ -15,7 +14,7 @@ train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
 # =====================
 num_inputs, num_outputs, num_hiddens = 784, 10, 256
 
-W1 = torch.tensor(np.random.normal(0, 0.01, (num_inputs, num_hiddens)), dtype=torch.float)
+W1 = torch.tensor(np.random.normal(0, 0.01, (num_inputs, num_hiddens)), dtype=torch.float, requires_grad=True)
 b1 = torch.zeros(num_hiddens, dtype=torch.float)
 W2 = torch.tensor(np.random.normal(0, 0.01, (num_hiddens, num_outputs)), dtype=torch.float)
 b2 = torch.zeros(num_outputs, dtype=torch.float)

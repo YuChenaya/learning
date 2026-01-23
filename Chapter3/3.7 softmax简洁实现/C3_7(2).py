@@ -1,10 +1,7 @@
 import torch
 from torch import nn
 from torch.nn import init
-import sys
-
-sys.path.append("..")
-import d2l
+import d22l as d2l
 from collections import OrderedDict
 
 # =====================
