@@ -17,7 +17,7 @@ labels += torch.tensor(np.random.normal(0, 0.01, size=labels.size()), dtype=torc
 # =====================
 # 定义、训练和测试模型
 # =====================
-# 本函数已保存在d2lzh_pytorch包中方便以后使用
+
 def semilogy(x_vals, y_vals, x_label, y_label, x2_vals=None, y2_vals=None,
              legend=None, figsize=(3.5, 2.5)):
     d2l.set_figsize(figsize)

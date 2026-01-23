@@ -6,7 +6,7 @@ from torch import nn
 # 6.2 二维卷积层
 # 6.2.1 二维互相关运算
 # =====================
-def corr2d(X, K):  # 本函数已保存在d2lzh_pytorch包中方便以后使用
+def corr2d(X, K):
     h, w = K.shape
     Y = torch.zeros((X.shape[0] - h + 1, X.shape[1] - w + 1))
     for i in range(Y.shape[0]):
