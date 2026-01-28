@@ -5,7 +5,6 @@ import torch.nn.functional as F
 
 import sys
 
-sys.path.append("..")
 import d22l as d2l
 
 # ==========================

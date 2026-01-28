@@ -73,7 +73,7 @@ net = nn.Sequential(
     nn.Linear(120, 84), BatchNorm(84, num_dims=2), nn.Sigmoid(),
     nn.Linear(84, 10))
 
-lr, num_epochs, batch_size = 1.0, 10, 256
+lr, num_epochs, batch_size = 1.0, 10, 128
 train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
 d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
